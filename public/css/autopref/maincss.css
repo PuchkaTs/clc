@@ -1,0 +1,5 @@
+body {
+  color: red;
+  padding: 70px;
+  -webkit-transition: 2s;
+          transition: 2s; }

@@ -1,0 +1,28 @@
+.flexslider2{
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    -o-box-shadow: none;
+    box-shadow: none;
+}
+
+.flexslider2 .slides > li {
+    margin-right: 20px;
+    width: 210px;
+    background-color: #ffffff;
+    min-height: 357px;
+}
+.flexslider2 .slides > li figcaption{
+    padding: 20px;
+}
+.flexslider2 .slides > li img{
+    padding: 5px;
+}
+
+.flexslider2 .flex-direction-nav .flex-prev {
+    left: -30px;
+}
+
+.flexslider2 .flex-direction-nav .flex-next {
+    right: -30px;
+    text-align: right;
+}
