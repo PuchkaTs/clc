@@ -3,6 +3,7 @@
 use App\Content;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Menu;
 use App\News;
 use Appitventures\Phpgmaps\Facades\Phpgmaps as Gmaps;
 use App\Project;
@@ -18,6 +19,14 @@ class PagesController extends Controller {
 	 */
     public function index()
     {
+        if (Menu::whereSlug(Request::path())->count())
+        {
+            $banners = Menu::whereSlug(Request::path())->first()->banner;
+        } else
+        {
+            $banners = false;
+        }
+
         $projects = Project::get();
         $news = News::get();
 
@@ -61,7 +70,7 @@ class PagesController extends Controller {
             $header = $content->header;
 
         }
-        return view('pages.home')->with(compact('projects', 'map', 'body', 'header', 'news'));
+        return view('pages.home')->with(compact('projects', 'map', 'body', 'header', 'news', 'banners'));
     }
 
 	/**
