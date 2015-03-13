@@ -27,8 +27,8 @@ class PagesController extends Controller {
             $banners = false;
         }
 
-        $projects = Project::get();
-        $news = News::get();
+        $projects = Project::with('image')->get();
+        $news = News::with('image')->get();
 
         $config['center'] = '47.920447, 106.917053';
         $config['zoom'] = '14';
@@ -100,8 +100,7 @@ class PagesController extends Controller {
 
     public function show_project_by_id($id)
     {
-        $project = Project::find($id);
-
+        $project = Project::with('image', 'features')->find($id);
         $config['center'] = '47.920447, 106.917053';
         $config['zoom'] = '14';
         $config['scrollwheel'] = false;
@@ -136,7 +135,9 @@ class PagesController extends Controller {
 	 */
 	public function available()
 	{
-        return view('home');
+        $projects = Project::where('available', '=', '1')->latest()->paginate(8);
+
+        return view('pages.portfolio')->with(compact('projects'));
 	}
 
 	/**

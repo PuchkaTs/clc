@@ -139,7 +139,7 @@ return [
         'Appitventures\Phpgmaps\PhpgmapsServiceProvider',
         'Frozennode\Administrator\AdministratorServiceProvider',
         'Illuminate\Html\HtmlServiceProvider',
-
+        'Laracasts\Flash\FlashServiceProvider',
 
 		/*
 		 * Application Service Providers...
@@ -149,7 +149,7 @@ return [
 		'App\Providers\ConfigServiceProvider',
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
-        'Laracasts\Flash\FlashServiceProvider'
+        'Laracasts\Generators\GeneratorsServiceProvider'
 
 
 	],

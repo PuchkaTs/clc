@@ -31,6 +31,7 @@
                         <a href="{{ route('project_path', $project->id) }}" ><img src="uploads/projects/430x200/{{ $project->image->first() ? $project->image->first()->image : '1.jpg' }}" /></a>
                         <figcaption>
                             <h4>{!! link_to_route('project_path', $project->title, $project->id)!!}</h4>
+                            <h5><i class="fa fa-usd" style="width: 15px;"></i>{{ number_format($project->price) }} MNT Per Month</h5>
                             <div><p>{{ $project->shorten(100)}} {!! link_to_route('project_path', 'Read more', $project->id, ['class' => 'more'])!!}</p></div>
                         </figcaption>
                     </li>

@@ -26,6 +26,11 @@ class Project extends Model{
 
         return $string;
     }
+    public function iffirstimg(){
+        $image = "uploads/projects/430x200/";
+        $image .=  $this->image->count() ? $this->image->first()->image : '1.jpg';
+        return $image;
+    }
 
     public function area(){
         return $this->belongsTo('App\Area');
@@ -33,5 +38,9 @@ class Project extends Model{
 
     public function image(){
         return $this->hasMany('App\Image');
+    }
+
+    public function features(){
+        return $this->belongsToMany('App\Feature');
     }
 }

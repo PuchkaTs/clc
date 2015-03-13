@@ -5,6 +5,7 @@ $gorange: #F95700;
 @import "forms.scss";
 @import "slideshow.scss";
 @import "project.scss";
+
 .container-fluid{
   padding: 0px;
 }
@@ -17,6 +18,8 @@ $gorange: #F95700;
 }
 body{
   background-color: #f1f4f9;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+
 }
 .fa{
   color: $primaryColor;
@@ -107,14 +110,15 @@ a {
   margin-top: 20px;
 }
 
-.row{
-  margin-right: 0px;
-}
-
 .white_background{
   background-color: white;
 }
 
 .width100{
   width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-style: normal;
+  font-weight: 300;
 }

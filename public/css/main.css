@@ -192,6 +192,9 @@ p.subdate {
   padding: 30px;
   padding-top: 70px; }
 
+#project_by_id h4 {
+  color: #999; }
+
 #project_by_id article h3 {
   margin-top: 0px; }
 
@@ -214,7 +217,8 @@ p.subdate {
   border-bottom: 1px solid #3690f0; }
 
 body {
-  background-color: #f1f4f9; }
+  background-color: #f1f4f9;
+  font-family: Roboto, Helvetica, Arial, sans-serif; }
 
 .fa {
   color: #3690f0; }
@@ -294,14 +298,15 @@ a {
   margin-bottom: 50px;
   margin-top: 20px; }
 
-.row {
-  margin-right: 0px; }
-
 .white_background {
   background-color: white; }
 
 .width100 {
   width: 100%; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-style: normal;
+  font-weight: 300; }
 
 
 /*# sourceMappingURL=main.css.map */

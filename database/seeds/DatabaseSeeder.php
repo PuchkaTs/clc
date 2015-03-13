@@ -1,5 +1,4 @@
 <?php
-
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,9 +11,17 @@ class DatabaseSeeder extends Seeder {
 	 */
 	public function run()
 	{
-		Model::unguard();
+        DB::statement('SET FOREIGN_KEY_CHECKS=0');
+        \App\Project::truncate();
+        \App\Area::truncate();
+        DB::table('feature_project')->truncate();
+        DB::statement('SET FOREIGN_KEY_CHECKS=1');
 
-		// $this->call('UserTableSeeder');
+        Model::unguard();
+
+		 $this->call('ProjectsTableSeeder');
+		 $this->call('FeaturesTableSeeder');
+		 $this->call('FeatureProjectTableSeeder');
 	}
 
 }

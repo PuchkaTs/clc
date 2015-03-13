@@ -6,8 +6,8 @@
     <div class="placeholder100 row" style="margin-top: 50px;">
         <div class="col-md-8 col-lg-6 col-lg-offset-2 gheader">
             <header>
-                <h2>{{ $project->title }}</h2>
-                <h6>{{ $project->price }} MNT Per Month</h6>
+                <h3>{{ $project->title }}</h3>
+                <h5>{{ number_format($project->price) }} MNT Per Month</h5>
             </header>
 
         </div>
@@ -42,10 +42,20 @@
                         <div>
                             <p>{!! $project->description!!}</p>
                         </div>
-
+                    </article>
+                    <article class="row" style="padding-top: 0px; margin-left: 0px;">
                         <h4>Property Details</h4>
+                        @include('layouts.partials.project.details')
+                    </article>
+
+                    <article class="row" style="padding-top: 0px; margin-left: 0px;">
+                        <h4>Property Features</h4>
                         <div>
-                            <p>blaaaaa</p>
+                            @foreach($project->features as $feature)
+                            <div class="col-md-4 col-sm-6">
+                                <p><i class="fa fa-check-square-o"></i>   {{ $feature->name}}</p>
+                            </div>
+                            @endforeach
                         </div>
                     </article>
                     <article>
