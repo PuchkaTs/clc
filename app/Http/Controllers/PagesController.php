@@ -31,6 +31,7 @@ class PagesController extends Controller {
             $marker['draggable'] = false;
             $marker['animation'] = 'DROP';
             $marker['title'] = $place->name;
+            $marker['infowindow_content'] ="<p>$place->name</p>";
             $marker['icon'] = asset("uploads/icon/" . $place->type->icon_link);
             Gmaps::add_marker($marker);
         }
@@ -42,6 +43,7 @@ class PagesController extends Controller {
             $marker['draggable'] = false;
             $marker['animation'] = 'DROP';
             $marker['title'] = $project->title;
+
             Request::is('portfolio/' . $project->id) ? $marker['icon'] = $marker['icon'] = asset("uploads/icon/house_red.png") :
             $marker['icon'] = $marker['icon'] = asset("uploads/icon/house.png");
 
