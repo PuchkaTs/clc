@@ -26,11 +26,6 @@ Route::get('portfolio/{id}', [
     'uses' => 'PagesController@show_project_by_id'
 ]);
 
-Route::post('portfolio/{id}', [
-    'as'   => 'project_path',
-    'uses' => 'PagesController@update_coords'
-]);
-
 Route::get('news/{id}', [
     'as'   => 'news_path',
     'uses' => 'PagesController@show_news_by_id'
@@ -53,6 +48,28 @@ Route::get('contact', [
 Route::post('contact', [
     'as'   => 'contact_path',
     'uses' => 'ContactsController@store'
+]);
+
+Route::get('admin/places/edit/{id}', [
+    'as'   => 'place_path',
+    'uses' => 'PlacesController@show'
+]);
+
+
+Route::post('admin/places/edit/{id}', [
+    'as'   => 'place_path',
+    'uses' => 'PlacesController@update_coords'
+]);
+
+Route::get('admin/projects/edit/{id}', [
+    'as'   => 'project_edit_path',
+    'uses' => 'PlacesController@edit_project_by_id'
+]);
+
+
+Route::post('admin/projects/edit/{id}', [
+    'as'   => 'project_edit_path',
+    'uses' => 'PlacesController@update_coords_project'
 ]);
 
 

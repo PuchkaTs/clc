@@ -5,7 +5,8 @@
 <div class="placeholder100 row" style="margin-top: 50px;">
     <div class="col-md-8 col-lg-6 col-lg-offset-2 gheader">
         <header>
-            <h3>{{ $news->header }} MNT Per Month</h3>
+            <h3>{{ $news->header }}</h3>
+            <p class="subdate">{{ $news->created_at->diffForHumans() }}</p>
         </header>
 
     </div>

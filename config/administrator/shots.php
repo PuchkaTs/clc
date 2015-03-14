@@ -5,8 +5,8 @@
  * @type string
  */
  return array(
-        'title'       => 'Шот',
-        'single'      => 'Шот',
+        'title'       => 'Short MSG',
+        'single'      => 'Short MSG',
         'model'       => 'App\Shot',
         /**
          * The display columns

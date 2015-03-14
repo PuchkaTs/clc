@@ -28,6 +28,11 @@ return array(
      * The filter set
      */
     'filters' => array(
+        'news' => array(
+            'type' => 'relationship',
+            'title' => 'News header',
+            'name_field' => 'header', //what column or accessor on the other table you want to use to represent this object
+        )
     ),
     /**
      * The editable fields

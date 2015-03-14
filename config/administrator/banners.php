@@ -66,7 +66,7 @@ return array(
      */
     'filters' => array(
         'id',
-        'name' => array(
+        'title' => array(
             'title' => 'Title',
         ),
         'position' => array(

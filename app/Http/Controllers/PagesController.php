@@ -5,6 +5,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Menu;
 use App\News;
+use App\Place;
 use Appitventures\Phpgmaps\Facades\Phpgmaps as Gmaps;
 use App\Project;
 use Illuminate\Support\Facades\Redirect;
@@ -12,11 +13,65 @@ use Request;
 
 class PagesController extends Controller {
 
-	/**
+
+    private  $map;
+
+    function __construct()
+    {
+        $config['center'] = '47.920447, 106.917053';
+        $config['zoom'] = '14';
+        $config['scrollwheel'] = false;
+        Gmaps::initialize($config);
+        $places = Place::with('type')->get();
+
+        foreach($places as $place){
+            $marker = array();
+            $position = (string) $place->xloc . ", " . (string) $place->yloc;
+            $marker['position'] = $position;
+            $marker['draggable'] = false;
+            $marker['animation'] = 'DROP';
+            $marker['title'] = $place->name;
+            $marker['icon'] = asset("uploads/icon/" . $place->type->icon_link);
+            Gmaps::add_marker($marker);
+        }
+        Request::is('available') ? $projects = Project::with('image')->where('available', '=', '1')->get() : $projects = Project::with('image')->get();
+        foreach($projects as $project){
+            $marker = array();
+            $position = (string) $project->xloc . ", " . (string) $project->yloc;
+            $marker['position'] = $position;
+            $marker['draggable'] = false;
+            $marker['animation'] = 'DROP';
+            $marker['title'] = $project->title;
+            Request::is('portfolio/' . $project->id) ? $marker['icon'] = $marker['icon'] = asset("uploads/icon/house_red.png") :
+            $marker['icon'] = $marker['icon'] = asset("uploads/icon/house.png");
+
+            if($project->image()->first()){
+                $image = '/uploads/projects/430x200/' . $project->image()->first()->image;} else {$image ='';}
+
+            $marker['infowindow_content'] =
+                '<div id="content">'.
+                '<h1><a href="' .
+                route('project_path', $project->id) .
+                 '">' .
+                $project->title .
+                '</a></h1>'.
+                '<p> Description</p>'.
+                '<img src="'.
+                $image.
+                '" width="432" height="200" alt="Fairbanks, AK">'.
+                '</div>';
+            Gmaps::add_marker($marker);
+        }
+        $this->map = Gmaps::create_map();
+    }
+
+    /**
 	 * Display a listing of the resource.
 	 *
 	 * @return Response
 	 */
+
+
     public function index()
     {
         if (Menu::whereSlug(Request::path())->count())
@@ -27,40 +82,9 @@ class PagesController extends Controller {
             $banners = false;
         }
 
-        $projects = Project::with('image')->get();
-        $news = News::with('image')->get();
+        $projects = Project::with('image')->limit(8)->get();
+        $news = News::with('image')->limit(3)->get();
 
-        $config['center'] = '47.920447, 106.917053';
-        $config['zoom'] = '14';
-        $config['scrollwheel'] = false;
-        Gmaps::initialize($config);
-        foreach($projects as $project){
-            $marker = array();
-            $position = (string) $project->xloc . ", " . (string) $project->yloc;
-            $marker['position'] = $position;
-            $marker['draggable'] = false;
-            $marker['animation'] = 'DROP';
-            $marker['title'] = $project->title;
-            if($project->image()->first()){
-                $image = '/uploads/projects/430x200/' . $project->image()->first()->image;} else {$image ='';}
-
-            $marker['infowindow_content'] =
-                '<div id="content">'.
-                    '<h1><a href="' .
-                    'portfolio/' .
-                    $project->id . '">' .
-                    $project->title .
-                    '</a></h1>'.
-                    '<p> Description</p>'.
-                    '<img src="'.
-                    $image.
-                    '" width="432" height="200" alt="Fairbanks, AK">'.
-                '</div>';
-            Gmaps::add_marker($marker);
-        }
-
-
-        $map = Gmaps::create_map();
 
         $body = 'body goes here';
         $header = 'Header goes here';
@@ -70,6 +94,7 @@ class PagesController extends Controller {
             $header = $content->header;
 
         }
+        $map = $this->map;
         return view('pages.home')->with(compact('projects', 'map', 'body', 'header', 'news', 'banners'));
     }
 
@@ -80,9 +105,11 @@ class PagesController extends Controller {
 	 */
 	public function portfolio()
 	{
+        $map = $this->map;
+        $title = 'Portfolio';
         $projects = Project::latest()->paginate(8);
 
-        return view('pages.portfolio')->with(compact('projects'));
+        return view('pages.portfolio')->with(compact('projects', 'title', 'map'));
 	}
 
     /**
@@ -101,33 +128,12 @@ class PagesController extends Controller {
     public function show_project_by_id($id)
     {
         $project = Project::with('image', 'features')->find($id);
-        $config['center'] = '47.920447, 106.917053';
-        $config['zoom'] = '14';
-        $config['scrollwheel'] = false;
-        Gmaps::initialize($config);
 
-        $marker = array();
-        if($project->xloc == 0){
-            $marker['position'] = '47.920447, 106.917053';
-        } else {
-            $position = (string) $project->xloc . ", " . (string) $project->yloc;
-            $marker['position'] = $position;
-        }
-        $marker['draggable'] = true;
-        $marker['ondragend'] = 'updateInputs(event.latLng.lat(), event.latLng.lng());';
-        Gmaps::add_marker($marker);
-        $map = Gmaps::create_map();
+        $map = $this->map;
 
         return view('pages.projectId')->with(compact('project', 'map'));
     }
 
-    public function update_coords($id){
-        $project = Project::find($id);
-        $project->xloc = floatval(Request::input('xloc'));
-        $project->yloc = floatval(Request::input('yloc'));
-        $project->save();
-        return Redirect::back();
-    }
 	/**
 	 * Store a newly created resource in storage.
 	 *
@@ -135,9 +141,11 @@ class PagesController extends Controller {
 	 */
 	public function available()
 	{
+        $map = $this->map;
+        $title = 'Available Properties';
         $projects = Project::where('available', '=', '1')->latest()->paginate(8);
 
-        return view('pages.portfolio')->with(compact('projects'));
+        return view('pages.portfolio')->with(compact('projects', 'title', 'map'));
 	}
 
 	/**

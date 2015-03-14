@@ -52,15 +52,13 @@ return array(
 	 *	)
 	 */
 	'menu' => array(
-	 		'users',
+            'User Role' => array('users','roles',),
             'Projects' => array('projects','images',),
             'News' => array('news','newsimages',),
+            'Banner' => array('menu','banners',),
+            'Places' => array('places','placetypes',),
             'areas',
-            'roles',
             'shots',
-            'images',
-            'menu',
-            'banners',
             'contents',
     ),
 
@@ -95,7 +93,7 @@ return array(
 	 *
 	 * @type string
 	 */
-	'home_page' => 'users',
+	'home_page' => 'projects',
 
 	/**
 	 * The route to which the user will be taken when they click the "back to site" button

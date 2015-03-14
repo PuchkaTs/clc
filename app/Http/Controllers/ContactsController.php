@@ -31,7 +31,8 @@ class ContactsController extends Controller {
         Gmaps::initialize($config);
 
         $marker = array();
-        $marker['position'] = '47.920447, 106.917053';
+        $marker['position'] = '47.91464789486723, 106.91671504166857';
+        $marker['icon'] = "uploads/icon/office.png";
         Gmaps::add_marker($marker);
         $map = Gmaps::create_map();
 //        echo "<html><head>".$map['js']."</head><body>".$map['html']."</body></html>";

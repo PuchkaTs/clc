@@ -1,11 +1,11 @@
 @extends('layouts.default_min')
 
 @section('body')
-
+{!! $map['html'] !!}
 <div class="placeholder100 row" style="margin-top: 50px;">
     <div class="col-md-8 col-lg-6 col-lg-offset-2 gheader">
         <header>
-            <h3>Portfolio</h3>
+            <h3>{{$title}}</h3>
         </header>
 
     </div>
@@ -32,5 +32,5 @@
 
 </div>
 
-
+{!! $map['js'] !!}
 @stop

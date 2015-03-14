@@ -31,6 +31,11 @@ return array(
      * The filter set
      */
     'filters' => array(
+        'project' => array(
+            'type' => 'relationship',
+            'title' => 'Appartment title',
+            'name_field' => 'title', //what column or accessor on the other table you want to use to represent this object
+        ),
     ),
     /**
      * The editable fields

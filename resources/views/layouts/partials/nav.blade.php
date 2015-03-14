@@ -44,7 +44,6 @@
                     <li class="{{ set_active('/') }}"><a href="/">Home</a></li>
                     <li class="{{ Request::is('portfolio') ? 'active' : '' }}"><a href="/portfolio">Portfolio</a></li>
                     <li class="{{ Request::is('available') ? 'active' : '' }}"><a href="/available">Available property</a></li>
-                    <li class="{{ Request::is('map') ? 'active' : '' }}"><a href="/portfolio">Map</a></li>
                     <li class="{{ Request::is('contact') ? 'active' : '' }}"><a href="/contact">Contact</a></li>
                    </ul>
             </div>

@@ -19,6 +19,10 @@ return array(
      */
     'form_width' => 500,
     'filters' => array(
+        'header' => array(
+            'title' => 'Header',
+            'type'  => 'text',
+        ),
     ),
     /**
      * The editable fields

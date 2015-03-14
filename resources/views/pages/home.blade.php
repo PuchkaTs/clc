@@ -61,6 +61,7 @@
                         <div class="col-md-6" style="padding-bottom: 30px; padding-right: 30px;">
 
                              <h3>{{ $anews->header }}</h3>
+                             <p class="subdate">{{ $anews->created_at->diffForHumans() }}</p>
                              <div>
                                 {!! $anews->shorten() !!}
                                 <p>{!! link_to_route('news_path', 'Read more', $anews->id, ['class' => 'more'])!!}</p>

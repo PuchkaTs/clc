@@ -11,7 +11,7 @@ class News extends Model{
         return $this->hasMany('App\Newsimage');
     }
 
-    public function shorten($num = 600){
+    public function shorten($num = 500){
 
         $string = strip_tags($this->body);
 

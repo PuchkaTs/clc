@@ -15,6 +15,25 @@
 <div class="row" id="projects" style="min-height: 500px">
     <div class="col-md-8 col-lg-6 col-lg-offset-2">
             <div class="col-md-12" id="project_by_id">
+                <article>
+                     {!! Form::open(['method' => 'post', 'route' => ['project_edit_path', $project->id]])!!}
+                         <!-- Xloc form input -->
+                         <div class="form-group">
+                             {!! Form::label('xloc', 'Xloc:') !!}
+                             {!! Form::text('xloc', null, ['class' => 'form-control']) !!}
+                         </div>
+                         <!-- Yloc form input -->
+                         <div class="form-group">
+                             {!! Form::label('yloc', 'Yloc:') !!}
+                             {!! Form::text('yloc', null, ['class' => 'form-control']) !!}
+                         </div>
+
+                         <!-- Submit form input -->
+                         <div class="form-group">
+                             {!! Form::submit('Submit', ['class' => 'btn btn-primary btn-block'])!!}
+                         </div>
+                     {!! Form::close()!!}
+                </article>
                 @if($project->image()->count())
                     <div id="slider" class="flexslider">
                         <ul class="slides">

@@ -12,15 +12,35 @@ return array(
     'columns' => array(
         'id',
         'title',
-        'description',
         'available',
+        'area' => array(
+            'title' => 'Area',
+            'relationship' => 'area',
+            'select' => '(:table).name',
+        ),
+        'id' => array(
+            'title' => 'Edit on Map',
+            'output' => '<a href="edit/(:value)" target="_blank">Show map</a>',
+        ),
     ),
     /**
      * The filter set
      */
     'form_width' => 500,
     'filters' => array(
-
+        'title' => array(
+            'title' => 'Title',
+            'type'  => 'text',
+        ),
+        'area' => array(
+            'type' => 'relationship',
+            'title' => 'Area',
+            'name_field' => 'name', //what column or accessor on the other table you want to use to represent this object
+        ),
+        'available' => array(
+            'title' => 'Is available',
+            'type'  => 'bool',
+        ),
     ),
     /**
      * The editable fields
