@@ -1,7 +1,7 @@
-@extends('app')
+@extends('layouts.default_min')
 
-@section('content')
-<div class="container-fluid">
+@section('body')
+<div class="container-fluid" style="margin-top: 70px;">
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
 			<div class="panel panel-default">
