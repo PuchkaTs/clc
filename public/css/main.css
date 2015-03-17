@@ -1,15 +1,7 @@
 .quick-access {
-  background: #1e69de;
+  background: #79C1BA;
   /* Old browsers */
-  /* FF3.6+ */
-  /* Chrome,Safari4+ */
-  /* Chrome10+,Safari5.1+ */
-  /* Opera 11.10+ */
-  /* IE10+ */
-  background: linear-gradient(45deg, #1e69de 0%, #54a3ee 69%, #3690f0 69%, #3690f0 69%, #6db3f2 100%);
-  /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e69de', endColorstr='#6db3f2',GradientType=1 );
-  /* IE6-9 fallback on horizontal gradient */
+  background-color: #79C1BA;
   width: 100%;
   padding: 3px;
   line-height: 28px;
@@ -29,7 +21,7 @@
     .quick-access p i:hover {
       background-color: white;
       border-color: white;
-      color: #6db3f2; }
+      color: #79C1BA; }
 
 .quick-access .icons {
   position: absolute;
@@ -44,7 +36,7 @@
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
   color: white;
   background-color: #f0f0f0;
-  background-color: #3690f0; }
+  background-color: #79C1BA; }
 
 .navbar {
   moz-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.15);
@@ -85,17 +77,9 @@ header.mainheader {
   padding: 20px 0px; }
 
 #copyright {
-  background: #1e69de;
+  background: #79C1BA;
   /* Old browsers */
-  /* FF3.6+ */
-  /* Chrome,Safari4+ */
-  /* Chrome10+,Safari5.1+ */
-  /* Opera 11.10+ */
-  /* IE10+ */
-  background: linear-gradient(45deg, #1e69de 0%, #54a3ee 69%, #3690f0 69%, #3690f0 69%, #6db3f2 100%);
-  /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e69de', endColorstr='#6db3f2',GradientType=1 );
-  /* IE6-9 fallback on horizontal gradient */
+  background-color: #79C1BA;
   padding: 10px 20px;
   color: white;
   margin-top: 20px; }
@@ -214,14 +198,14 @@ p.subdate {
   margin-bottom: 20px; }
 
 .chairman {
-  border-bottom: 1px solid #3690f0; }
+  border-bottom: 1px solid #79C1BA; }
 
 body {
   background-color: #f1f4f9;
   font-family: Roboto, Helvetica, Arial, sans-serif; }
 
 .fa {
-  color: #3690f0; }
+  color: #79C1BA; }
 
 .thumbnail {
   min-height: 400px;
@@ -239,14 +223,14 @@ body {
 
 .btnRed {
   border: none;
-  background-color: #3690f0; }
+  background-color: #79C1BA; }
   .btnRed:hover {
     background-color: #F95700; }
 
 .underlined {
   margin-bottom: 40px;
   padding-bottom: 10px;
-  border-bottom: 1px solid #3690f0; }
+  border-bottom: 1px solid #79C1BA; }
 
 aside article {
   background-color: #fff;
@@ -255,10 +239,10 @@ aside article {
 .glyphicon {
   font-size: 15px;
   margin-right: 5px;
-  color: #3690f0; }
+  color: #79C1BA; }
 
 .badge {
-  background-color: #3690f0; }
+  background-color: #79C1BA; }
 
 .placeholder100 {
   height: 100px; }
@@ -291,7 +275,7 @@ a {
   text-decoration: none; }
 
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
-  background-color: #3690f0;
+  background-color: #79C1BA;
   color: #ffffff; }
 
 .policy {

@@ -25,7 +25,7 @@
 <div style="height: 34px;"></div>
 
 <header class="mainheader">
-    <nav class="navbar navbar-default role="navigation" >
+    <nav class="navbar navbar-default" role="navigation" >
     <div class="container">
         <div class="slidenav1" id="navslide">
             <div class="navbar-header">
@@ -48,7 +48,6 @@
                    </ul>
             </div>
         </div>
-
     </div>
 
     </nav>

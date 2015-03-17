@@ -1,12 +1,6 @@
 .quick-access{
-  background: #1e69de; /* Old browsers */
-  background: -moz-linear-gradient(45deg,  #1e69de 0%, #54a3ee 69%, #3690f0 69%, #3690f0 69%, #6db3f2 100%); /* FF3.6+ */
-  background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,#1e69de), color-stop(69%,#54a3ee), color-stop(69%,#3690f0), color-stop(69%,#3690f0), color-stop(100%,#6db3f2)); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(45deg,  #1e69de 0%,#54a3ee 69%,#3690f0 69%,#3690f0 69%,#6db3f2 100%); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(45deg,  #1e69de 0%,#54a3ee 69%,#3690f0 69%,#3690f0 69%,#6db3f2 100%); /* Opera 11.10+ */
-  background: -ms-linear-gradient(45deg,  #1e69de 0%,#54a3ee 69%,#3690f0 69%,#3690f0 69%,#6db3f2 100%); /* IE10+ */
-  background: linear-gradient(45deg,  #1e69de 0%,#54a3ee 69%,#3690f0 69%,#3690f0 69%,#6db3f2 100%); /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e69de', endColorstr='#6db3f2',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+  background: #79C1BA; /* Old browsers */
+  background-color: #79C1BA;
 
   width: 100%;
   padding: 3px;
@@ -22,7 +16,7 @@
     &:hover{
       background-color: white;
       border-color: white;
-      color: #6db3f2;
+      color: $primaryColor;
     }
   }
 }
@@ -40,7 +34,7 @@
 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus {
   color: white;
   background-color: #f0f0f0;
-  background-color: #3690f0;
+  background-color: $primaryColor;
 }
 
 .navbar {
