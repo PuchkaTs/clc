@@ -16,6 +16,11 @@ Route::get('/', [
     'uses'  => 'PagesController@index',
 ]);
 
+Route::get('/phpinfo', function(){
+    return phpinfo();
+});
+
+
 Route::get('portfolio', [
     'as'   => 'portfolio_path',
     'uses' => 'PagesController@portfolio'
