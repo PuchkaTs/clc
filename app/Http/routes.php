@@ -20,7 +20,6 @@ Route::get('/phpinfo', function(){
     return phpinfo();
 });
 
-
 Route::get('portfolio', [
     'as'   => 'portfolio_path',
     'uses' => 'PagesController@portfolio'
@@ -35,6 +34,7 @@ Route::get('news/{id}', [
     'as'   => 'news_path',
     'uses' => 'PagesController@show_news_by_id'
 ]);
+
 Route::get('available', [
     'as'   => 'available_path',
     'uses' => 'PagesController@available'
