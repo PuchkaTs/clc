@@ -25,7 +25,7 @@ class ContactsController extends Controller {
 
     public function contact()
     {
-        $config['center'] = '47.920447, 106.917053';
+        $config['center'] = '47.909876, 106.917516';
         $config['zoom'] = '14';
         $config['scrollwheel'] = false;
         Gmaps::initialize($config);

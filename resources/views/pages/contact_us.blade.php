@@ -2,7 +2,7 @@
 @section('body')
 
     {!! $map['html'] !!}
-    
+
 @stop
 
 @section('script')

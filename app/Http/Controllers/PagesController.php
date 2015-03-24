@@ -57,11 +57,18 @@ class PagesController extends Controller {
                  '">' .
                 $project->title .
                 '</a></h1>'.
-                '<p> Description</p>'.
+                '<p><a href="' .
+                route('project_path', $project->id) .
+                '">' .
+                $project->shorten(50) .
+                '</a></p>'.
+                '<a href="' .
+                route('project_path', $project->id) .
+                '">' .
                 '<img src="'.
                 $image.
-                '" width="432" height="200" alt="Fairbanks, AK">'.
-                '</div>';
+                '" width="432" height="200">'.
+                '</a></div>';
             Gmaps::add_marker($marker);
         }
         $this->map = Gmaps::create_map();
