@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Menu;
 use App\News;
 use App\Place;
+use App\Video;
 use Appitventures\Phpgmaps\Facades\Phpgmaps as Gmaps;
 use App\Project;
 use Illuminate\Support\Facades\Redirect;
@@ -104,7 +105,8 @@ class PagesController extends Controller {
 
         }
         $map = $this->map;
-        return view('pages.home')->with(compact('projects', 'map', 'body', 'header', 'news', 'banners'));
+        $videos = Video::wherePin(true)->get();
+        return view('pages.home')->with(compact('projects', 'map', 'body', 'header', 'news', 'banners', 'videos'));
     }
 
 	/**

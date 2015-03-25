@@ -60,6 +60,7 @@ return array(
             'areas',
             'shots',
             'contents',
+            'videos',
     ),
 
 	/**
