@@ -74,16 +74,19 @@
     </article>
 
     <article style="margin:45px 20px;">
-    <h3><i class="fa fa-home"></i> Videos</h3>
+    <h3><i class="fa fa-video-camera"></i> Videos</h3>
         <div class="row">
             @foreach($videos as $index => $video)
             <div class="col-sm-6 col-md-4 noPadding">
                 <div class="thumbnail thumb{{ $index }}">
                     <h3>{{ $video->title }}</h3>
-                    <video id="{{ $video->video }}" class="sublime" width="360" height="200" title="Оюу Толгойн луйвар"
-                           data-uid="{{ $video->video }}" data-youtube-id="{{ $video->video }}" data-autoresize="fit"
-                           preload="none">
-                    </video>
+                    <div class="embed-responsive embed-responsive-16by9">
+                      <iframe class="embed-responsive-item" src="//www.youtube.com/embed/{{$video->video . "?rel=0&amp;showinfo=0"}}" allowfullscreen></iframe>
+                    </div>
+                    {{--<video id="{{ $video->video }}" class="sublime" width="360" height="200" title="Оюу Толгойн луйвар"--}}
+                           {{--data-uid="{{ $video->video }}" data-youtube-id="{{ $video->video }}" data-autoresize="fit"--}}
+                           {{--preload="none">--}}
+                    {{--</video>--}}
 
                     <div class="caption">
 
