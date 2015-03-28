@@ -40,6 +40,11 @@ Route::get('available', [
     'uses' => 'PagesController@available'
 ]);
 
+Route::get('inarea/{id}', [
+    'as'   => 'inarea_path',
+    'uses' => 'PagesController@inarea'
+]);
+
 Route::get('map', [
     'as'   => 'map_path',
     'uses' => 'PagesController@map'

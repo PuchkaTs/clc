@@ -14,7 +14,7 @@
     <link rel="stylesheet" type="text/css" href="/css/image_css/style_common.css">
     <link rel="stylesheet" type="text/css" href="/css/flexslider/flexslider.css">
     <link rel="stylesheet" type="text/css" href="/css/main.css">
-    <link rel="icon" href="/fav.ico">
+    <link rel="icon" href="/favicon.ico">
     <script src="/js/respond.min.js"></script>
     @yield('css')
 </head>

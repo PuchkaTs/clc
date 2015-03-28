@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+use App\Area;
 use App\Content;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -36,7 +37,14 @@ class PagesController extends Controller {
             $marker['icon'] = asset("uploads/icon/" . $place->type->icon_link);
             Gmaps::add_marker($marker);
         }
-        Request::is('available') ? $projects = Project::with('image')->where('available', '=', '1')->get() : $projects = Project::with('image')->get();
+        $request = Request::path();
+
+        if(str_is('available*', $request)){
+            $projects = Project::with('image')->where('available', '=', '1')->get();
+        } else{
+            $projects = Project::with('image')->get();
+        }
+
         foreach($projects as $project){
             $marker = array();
             $position = (string) $project->xloc . ", " . (string) $project->yloc;
@@ -158,6 +166,15 @@ class PagesController extends Controller {
 
         return view('pages.portfolio')->with(compact('projects', 'title', 'map'));
 	}
+
+    public function inarea($id)
+    {
+        $map = $this->map;
+        $area = Area::find($id);
+        $title = 'Properties in' . $area->name;
+        $projects = $area->projects()->latest()->paginate(8);
+        return view('pages.portfolio')->with(compact('projects', 'title', 'map'));
+    }
 
 	/**
 	 * Display the specified resource.
