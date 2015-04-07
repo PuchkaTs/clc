@@ -37,8 +37,4 @@ return array(
             'type' => 'text',
         ),
     ),
-    'permission'=> function()
-    {
-        return Auth::user()->hasRole('super_admin');
-    },
 );

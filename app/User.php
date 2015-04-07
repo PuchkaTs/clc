@@ -42,14 +42,4 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
         return $this->belongsTo('App\Role', 'role_id');
     }
 
-    public function hasRole($name)
-    {
-        if ($this->roles->name == $name)
-        {
-            return true;
-        }
-
-        return false;
-    }
-
 }
