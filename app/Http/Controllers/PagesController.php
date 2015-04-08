@@ -101,7 +101,7 @@ class PagesController extends Controller {
         }
 
         $projects = Project::with('image')->limit(8)->get();
-        $news = News::with('image')->limit(3)->get();
+        $news = News::with('image')->limit(2)->latest()->get();
 
 
         $body = 'body goes here';

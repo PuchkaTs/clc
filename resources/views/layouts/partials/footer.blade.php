@@ -17,17 +17,16 @@
 
         <div class="col-md-3 col-xs-offset-1">
             <h4><span class="glyphicon glyphicon-earphone"></span> Want to talk?</h4>
-
-            <p> mobile: +976-9588-6502</p>
-
-            <p> mobile: +976-9909-6506 </p>
-
-            <p> mobile: +976-8812-6659 </p>
+            @foreach(App\Contact::limit(3)->get() as $contact)
+                <p>mobile: +976-{{$contact->phone}}</p>
+            @endforeach
         </div>
 
         <div class="col-md-3 col-xs-offset-1">
             <h4><span class="glyphicon glyphicon-envelope"></span> Stay connected.</h4>
-            <p> email: <a href="mailto:Hello@clc.mn">Hello@clc.mn</a></p>
+            @foreach(App\Contact::limit(3)->get() as $contact)
+                <p> email: <a href="mailto:{{$contact->email}}">{{$contact->email}}</a></p>
+            @endforeach
             <br>
         </div>
 

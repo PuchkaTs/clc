@@ -53,7 +53,7 @@ return array(
 	 */
 	'menu' => array(
             'User Role' => array('users','roles',),
-            'Projects' => array('projects','images',),
+            'Projects' => array('projects','images','features'),
             'News' => array('news','newsimages',),
             'Banner' => array('menu','banners',),
             'Places' => array('places','placetypes',),
@@ -61,6 +61,7 @@ return array(
             'shots',
             'contents',
             'videos',
+            'contacts',
     ),
 
 	/**

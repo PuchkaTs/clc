@@ -63,21 +63,30 @@ return array(
             'title' => 'Area',
             'name_field' => 'name', //what column or accessor on the other table you want to use to represent this object
         ),
-        'price' => array(
-            'type' => 'number',
-            'title' => 'Price',
-            'symbol' => '$', //optional, defaults to ''
-            'decimals' => 2, //optional, defaults to 0
-            'thousands_separator' => ',', //optional, defaults to ','
-            'decimal_separator' => '.', //optional, defaults to '.'
+        'features' => array(
+            'type' => 'relationship',
+            'title' => 'Features',
+            'name_field' => 'name', //what column or accessor on the other table you want to use to represent this object
         ),
-        'price' => array(
-            'type' => 'number',
-            'title' => 'Price',
-            'symbol' => '$', //optional, defaults to ''
-            'decimals' => 2, //optional, defaults to 0
-            'thousands_separator' => ',', //optional, defaults to ','
-            'decimal_separator' => '.', //optional, defaults to '.'
-        )
+        'rooms' => array(
+            'title' => 'Rooms:',
+            'type' => 'text',
+        ),
+        'size' => array(
+            'title' => 'Size:',
+            'type' => 'text',
+        ),
+        'bathrooms' => array(
+            'title' => 'Bathrooms:',
+            'type' => 'text',
+        ),
+//        'price' => array(
+//            'type' => 'number',
+//            'title' => 'Price',
+//            'symbol' => '$', //optional, defaults to ''
+//            'decimals' => 2, //optional, defaults to 0
+//            'thousands_separator' => ',', //optional, defaults to ','
+//            'decimal_separator' => '.', //optional, defaults to '.'
+//        ),
     ),
 );

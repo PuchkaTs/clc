@@ -36,5 +36,10 @@ return array(
             'title' => 'Password',
             'type' => 'text',
         ),
+        'roles' => array(
+            'type' => 'relationship',
+            'title' => 'Role',
+            'name_field' => 'name', //what column or accessor on the other table you want to use to represent this object
+        ),
     ),
 );

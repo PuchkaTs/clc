@@ -7,7 +7,7 @@
         <div class="col-md-8 col-lg-6 col-lg-offset-2 gheader">
             <header>
                 <h3>{{ $project->title }}</h3>
-                <h5>{{ number_format($project->price) }} MNT Per Month</h5>
+
             </header>
 
         </div>
