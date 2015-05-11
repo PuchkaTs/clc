@@ -46,7 +46,7 @@
 
 <div class="container noPadding">
 
-            @if($news)
+        @if($news->count())
         <article style="margin:45px 20px;">
             <h3><i class="fa fa-home"></i> News</h3>
 
