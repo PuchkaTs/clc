@@ -46,10 +46,10 @@
 
 <div class="container noPadding">
 
-
-    <article style="margin:45px 20px;">
-        <h3><i class="fa fa-home"></i> News</h3>
             @if($news)
+        <article style="margin:45px 20px;">
+            <h3><i class="fa fa-home"></i> News</h3>
+
                 @foreach($news as $anews)
                     <div class="row white_background" style="margin-bottom: 50px;">
 
@@ -69,9 +69,9 @@
                         </div>
                     </div>
             @endforeach()
-        @endif
-    </article>
 
+         </article>
+        @endif
     <article style="margin:45px 20px;">
     <h3><i class="fa fa-video-camera"></i> Videos</h3>
         <div class="row">

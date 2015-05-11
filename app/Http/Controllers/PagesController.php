@@ -82,7 +82,6 @@ class PagesController extends Controller {
         }
         $this->map = Gmaps::create_map();
     }
-
     /**
 	 * Display a listing of the resource.
 	 *

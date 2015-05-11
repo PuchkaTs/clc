@@ -18,7 +18,7 @@
                             <a href="{{ route('project_path', $project->id) }}" >{!! Html::image($project->iffirstimg(), null, ['class'=>'width100']) !!}</a>
                             <figcaption>
                                 <h4>{!! link_to_route('project_path', $project->title, $project->id)!!}</h4>
-                                <h5><i class="fa fa-usd" style="width: 15px;"></i>{{ number_format($project->price) }} MNT Per Month</h5>
+
                                 <div><p>{{ $project->shorten(100)}} {!! link_to_route('project_path', 'Read more', $project->id, ['class' => 'more'])!!}</p></div>
                             </figcaption>
                         </article>
